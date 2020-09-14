@@ -1,0 +1,92 @@
+body {
+	-webkit-perspective: 800px;
+	background: url('../images/cross.jpg');	
+	background-size: 100%;	
+}
+li{list-style:none;}
+html,body,div,ul,li{padding:0;margin:0;}
+.wrap {
+	position: relative;
+	top: 250px;
+	width: 200px;
+	height: 200px;
+	margin: 0px auto 0;
+	cursor: pointer;
+	-webkit-transform-style: preserve-3d;
+	-webkit-animation: rotate 5s linear 0s infinite normal;
+}
+@-webkit-keyframes rotate {
+	0% {-webkit-transform: rotateY(0deg);}
+	100% {-webkit-transform: rotateY(360deg);}
+}
+.wrap div {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 200px;
+	height: 200px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.2) inset;
+}
+.wrap ul {
+	position: absolute;
+	top: 50px;
+	left: 50px;
+	width: 100px;
+	height: 100px;
+	-webkit-transform-style: preserve-3d;
+}
+.wrap ul li {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100px;
+	height: 100px;
+}
+.wrap div:nth-child(1) {
+	background: rgba(255,255,255,0.3);
+	-webkit-transform: translateZ(100px);
+}
+.wrap div:nth-child(2) {
+	background: rgba(255,255,255,0.3);
+	-webkit-transform: translateZ(-100px);
+}
+.wrap div:nth-child(3) {
+	background: rgba(255,255,255,0.3);
+	-webkit-transform: rotateY(90deg) translateZ(-100px);
+}
+.wrap div:nth-child(4) {
+	background: rgba(255,255,255,0.3);
+	-webkit-transform: rotateY(90deg) translateZ(100px);
+}
+.wrap div:nth-child(5) {
+	background: rgba(255,255,255,0.3);
+	-webkit-transform: rotateX(90deg) translateZ(100px);
+}
+.wrap div:nth-child(6) {
+	background: rgba(255,255,255,0.3);
+	-webkit-transform: rotateX(90deg) translateZ(-100px);
+}
+.wrap ul li:nth-child(1) {
+	background: url('../images/cross5.png');
+	-webkit-transform: translateZ(50px);
+}
+.wrap ul li:nth-child(2) {
+	background: url('../images/cross6.png');
+	-webkit-transform: translateZ(-50px);
+}
+.wrap ul li:nth-child(3) {
+	background: url('../images/cross3.png');
+	-webkit-transform: rotateY(90deg) translateZ(-50px);
+}
+.wrap ul li:nth-child(4) {
+	background: url('../images/cross2.png');
+	-webkit-transform: rotateY(90deg) translateZ(50px);
+}
+.wrap ul li:nth-child(5) {
+	background: url('../images/cross4.jpg');
+	-webkit-transform: rotateX(90deg) translateZ(50px);
+}
+.wrap ul li:nth-child(6) {
+	background: url('../images/cross1.png');
+	-webkit-transform: rotateX(90deg) translateZ(-50px);
+}

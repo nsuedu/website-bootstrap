@@ -1,0 +1,90 @@
+<!doctype html>
+<head>
+	<meta charset="UTF-8">
+	<title>HTML5 - CSS3 旋转立方体</title>
+	<link rel="stylesheet" type="text/css" href="css/css3-rolling-cube.css">
+	<script type="text/javascript" src="js/jquery1.7.js"></script>
+	<script>
+	//页面加载函数
+	$(function(){
+		var height = $(window).height();
+		var width = $(window).width();
+		$('body').css({
+			'height':height,
+			'width':width
+		})
+
+		$('.wrap').hover(function(){
+			$('.wrap div').eq(2).css({
+				'webkitTransform':'rotateY(90deg) translateZ(-400px)',
+				'webkitTransition':'2s'
+			})
+			$('.wrap div').eq(3).css({
+				'webkitTransform':'rotateY(90deg) translateZ(400px)',
+				'webkitTransition':'2s'
+			})
+			$('.wrap div').eq(0).css({
+				'webkitTransform':'translateZ(400px)',
+				'webkitTransition':'2s'
+			})
+			$('.wrap div').eq(1).css({
+				'webkitTransform':'translateZ(-400px)',
+				'webkitTransition':'2s'
+			})
+			$('.wrap div').eq(4).css({
+				'webkitTransform':'rotateX(90deg) translateZ(200px)',
+				'webkitTransition':'2s'
+			})
+			$('.wrap div').eq(5).css({
+				'webkitTransform':'rotateX(90deg) translateZ(-200px)',
+				'webkitTransition':'2s'
+			})
+		},function(){
+			$('.wrap div').eq(2).css({
+				'webkitTransform':'rotateY(90deg) translateZ(-100px)',
+				'webkitTransition':'2s'
+			})
+			$('.wrap div').eq(3).css({
+				'webkitTransform':'rotateY(90deg) translateZ(100px)',
+				'webkitTransition':'2s'
+			})
+			$('.wrap div').eq(0).css({
+				'webkitTransform':'translateZ(100px)',
+				'webkitTransition':'2s'
+			})
+			$('.wrap div').eq(1).css({
+				'webkitTransform':'translateZ(-100px)',
+				'webkitTransition':'2s'
+			})
+			$('.wrap div').eq(4).css({
+				'webkitTransform':'rotateX(90deg) translateZ(100px)',
+				'webkitTransition':'2s'
+			})
+			$('.wrap div').eq(5).css({
+				'webkitTransform':'rotateX(90deg) translateZ(-100px)',
+				'webkitTransition':'2s'
+			})
+		})
+	});
+	
+</script>
+</head>
+<body>
+	<div class="wrap">
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<ul>
+			<li class="one"></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+</body>
+</html>

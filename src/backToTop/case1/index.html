@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+    <style>
+        .box {
+            position: fixed;
+            right: 10px;
+            bottom: 10px;
+            height: 30px;
+            width: 50px;
+            text-align: center;
+            padding-top: 20px;
+            background-color: lightblue;
+            border-radius: 20%;
+            overflow: hidden;
+        }
+
+        .box:hover:before {
+            top: 50%
+        }
+
+        .box:hover .box-in {
+            visibility: hidden;
+        }
+
+        .box:before {
+            position: absolute;
+            top: -50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            content: '回到顶部';
+            width: 40px;
+            color: peru;
+            font-weight: bold;
+        }
+
+        .box-in {
+            visibility: visible;
+            display: inline-block;
+            height: 20px;
+            width: 20px;
+            border: 3px solid black;
+            border-color: white transparent transparent white;
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+
+
+<body style="height:2000px;">
+    <div id="box" class="box">
+        <div class="box-in"></div>
+    </div>
+    <div>
+            requestAnimationFrame,cancelAnimationFrame实现滚动条缓慢滚动<br>与
+            document.body.scrollTop || document.documentElement.scrollTop<br>
+            实现滚动条缓慢滚动
+    </div>
+    <div id="SomeElementYouWantToAnimate">SomeElementYouWantToAnimate</div>
+
+    <script src="./index.js"></script>
+    <script>
+        /* 
+        1.--------------更新屏幕画面 requestAnimationFrame
+        2.--------cancelAnimationFrame
+        取消一个先前通过调用window.requestAnimationFrame()方法添加到计划中的动画帧请求.
+         参数 先前调用window.requestAnimationFrame()方法时返回的ID.
+         */
+        //  
+        var timer = null;
+        box.onclick = function () {
+            cancelAnimationFrame(timer);
+            timer = requestAnimationFrame(function fn() {
+                var oTop = document.body.scrollTop || document.documentElement.scrollTop;
+                if (oTop > 0) {
+                    document.body.scrollTop = document.documentElement.scrollTop = oTop - 20;
+                    timer = requestAnimationFrame(fn);
+                } else {
+                    cancelAnimationFrame(timer);
+                }
+            });
+        }
+        /*
+        var element = document.getElementById('SomeElementYouWantToAnimate');
+        element.style.position = 'absolute';
+        
+                var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+                    window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+        
+                var cancelAnimationFrame = window.cancelAnimationFrame || window.mozCancelAnimationFrame;
+        
+                var start = window.mozAnimationStartTime || Date.now();  // 只有Firefox支持mozAnimationStartTime属性,其他浏览器可以使用Date.now()来替代.
+        
+                var myReq;
+                function step(timestamp) {
+                    var progress = timestamp ;
+                    element.style.left = Math.min(progress / 10, 200) + "px";
+                    if (progress < 2000) {
+                        myReq = requestAnimationFrame(step);
+                    }
+                }
+                myReq = requestAnimationFrame(step);
+        
+                //window.cancelAnimationFrame(myReq);
+                
+               /*
+        var start = null;
+        var element = document.getElementById('SomeElementYouWantToAnimate');
+        element.style.position = 'absolute';
+
+        function step(timestamp) {
+            if (!start) start = timestamp;
+            var progress = timestamp - start;
+            element.style.left = Math.min(progress / 10, 200) + 'px';
+            if (progress < 2000) {
+                window.requestAnimationFrame(step);
+            }
+        }
+
+        window.requestAnimationFrame(step);
+        */
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="./favicon.ico">
+
+  <title>跬步千里</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <link href="../css/bootstrap/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="../css/bootstrap/starter-template.css" rel="stylesheet">
+  <link rel="stylesheet" href="../style/common.css">
+  <link rel="stylesheet" href="../style/index.css">
+  <link rel="stylesheet" href="../style/zzsc.css">
+  <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+  <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+  <script src="../js/bootstrap/ie-emulation-modes-warning.js"></script>
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+      <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+          aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Project name</a>
+      </div>
+      <!--navbar-header-->
+
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-left">
+          <li class="active">
+            <a href="./index.html">
+              <span class="glyphicon glyphicon-home" aria-hidden="true"></span> 首页
+            </a>
+          </li>
+          <li>
+              <a href="./article.html">
+                <span class="glyphicon glyphicon-gift" aria-hidden="true"></span> 文章
+              </a>
+            </li>
+          <li>
+            <a href="./product.html">
+              <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> 作品
+            </a>
+          </li>
+
+          <li>
+            <a href="./studyData.html">
+              <span class="glyphicon glyphicon-gift" aria-hidden="true"></span> 资料
+            </a>
+          </li>
+          <li>
+            <a href="./about.html">
+              <span class="glyphicon glyphicon-comment" aria-hidden="true"></span> 关于
+            </a>
+          </li>
+        </ul>
+
+        <form class="nav navbar-nav navbar-right navbar-form" id="searchInput">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+          </div>
+          <button type="submit" class="btn btn-default">搜索</button>
+        </form>
+      </div>
+      <!-- <div id="navbar" class="collapse navbar-collapse">-->
+    </div>
+    <!--class="container"-->
+  </nav>
+  <div style="height: 80px;margin-top: 10px;"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 blog-main">
+        <div data-ride='carousel' class="carousel slide" id="carousel-container">
+          <!--图片容器-->
+          <div class="carousel-inner">
+            <div class="item active">
+              <img src="../images/loop0.png" alt="">
+            </div>
+            <div class="item">
+              <img src="../images/loop1.png" alt="">
+            </div>
+            <div class="item">
+              <img src="../images/loop2.png" alt="">
+            </div>
+            <div class="item">
+              <img src="../images/loop3.png" alt="">
+            </div>
+            <div class="item">
+              <img src="../images/loop4.png" alt="">
+            </div>
+          </div>
+          <!--圆圈指示符-->
+          <div class="carousel-indicators">
+            <li data-slide-to='0' data-target='#carousel-container' class="active"></li>
+            <li data-slide-to='1' data-target='#carousel-container'></li>
+            <li data-slide-to='3' data-target='#carousel-container'></li>
+            <li data-slide-to='4' data-target='#carousel-container'></li>
+          </div>
+          <!--左右控制按钮-->
+          <a class="left carousel-control" data-slide='prev' href='#carousel-container'>
+            <span class="glyphicon glyphicon-chevron-left"></span>
+          </a>
+          <a class="right carousel-control" data-slide='next' href='#carousel-container'>
+            <span class="glyphicon glyphicon-chevron-right"></span>
+          </a>
+        </div>
+        <!--data-ride='carousel' class="carousel slide"-->
+
+
+        <!--文章列表-->
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">最新发布</h3>
+          </div>
+          <div class="panel-body">
+            <div class="list-group">
+              <!--文章列表其中一个-->
+              <div class="list-group-item articalList">
+                <div class="row">
+                  <div class="col-md-5" style="height: 170px;">
+                    <a href="./articleDetail.html">
+                      <img src="../images/react0.jpg" alt="react">
+                    </a>
+                  </div>
+                  <div class="col-md-7">
+                    <div class="row">
+                      <div class="col-md-12 articalList-item-head">
+                        <h4>
+                          <span class="label label-primary">java</span>
+                          <span> Management_Mystem</span>
+                        </h4>
+                      </div>
+                      <div class="col-md-12 articalList-item-body">
+                        <p>的回复的回复的科技孵化的空间是否断开连接是否的科技发达科技示范基地撒谎发动机是否打开就是的风口浪尖 的回复的科技孵化的空间是否断开连接是</p>
+                      </div>
+                      <div class="col-md-12 articalList-item-footer">
+                        <div class="content-footer-item">2018-05-17</div>
+                        <div class="content-footer-item">2018次浏览</div>
+                        <div class="content-footer-item">2018次评论</div>
+                        <div class="content-footer-item">
+                          <a href="./articleDetail.html">
+                            <span class="label label-primary">阅读全文</span>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--文章列表其中一个-->
+              <!--文章列表其中一个-->
+              <div class="list-group-item articalList">
+                <div class="row">
+                  <div class="col-md-5" style="height: 170px;">
+                    <a href="./articleDetail.html">
+                      <img src="../images/react0.jpg" alt="react">
+                    </a>
+                  </div>
+                  <div class="col-md-7">
+                    <div class="row">
+                      <div class="col-md-12 articalList-item-head">
+                        <h4>
+                          <span class="label label-primary">java</span>
+                          <span> Management_Mystem</span>
+                        </h4>
+                      </div>
+                      <div class="col-md-12 articalList-item-body">
+                        <p>的回复的回复的科技孵化的空间是否断开连接是否的科技发达科技示范基地撒谎发动机是否打开就是的风口浪尖 的回复的科技孵化的空间是否断开连接是
+                        </p>
+                      </div>
+                      <div class="col-md-12 articalList-item-footer">
+                        <div class="content-footer-item">2018-05-17</div>
+                        <div class="content-footer-item">2018次浏览</div>
+                        <div class="content-footer-item">2018次评论</div>
+                        <div class="content-footer-item">
+                          <a href="./articleDetail.html">
+                            <span class="label label-primary">阅读全文</span>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--文章列表其中一个-->
+              <!--文章列表其中一个-->
+              <div class="list-group-item articalList">
+                <div class="row">
+                  <div class="col-md-5" style="height: 170px;">
+                    <a href="./articleDetail.html">
+                      <img src="../images/react0.jpg" alt="react">
+                    </a>
+                  </div>
+                  <div class="col-md-7">
+                    <div class="row">
+                      <div class="col-md-12 articalList-item-head">
+                        <h4>
+                          <span class="label label-primary">java</span>
+                          <span> Management_Mystem</span>
+                        </h4>
+                      </div>
+                      <div class="col-md-12 articalList-item-body">
+                        <p>的回复的回复的科技孵化的空间是否断开连接是否的科技发达科技示范基地撒谎发动机是否打开就是的风口浪尖 的回复的科技孵化的空间是否断开连接是</p>
+                      </div>
+                      <div class="col-md-12 articalList-item-footer">
+                        <div class="content-footer-item">2018-05-17</div>
+                        <div class="content-footer-item">2018次浏览</div>
+                        <div class="content-footer-item">2018次评论</div>
+                        <div class="content-footer-item">
+                          <a href="./articleDetail.html">
+                            <span class="label label-primary">阅读全文</span>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--文章列表其中一个-->
+            </div>
+          </div>
+
+        </div>
+        <!--文章列表-->
+
+      </div>
+      <!--class="col-sm-8 blog-main"-->
+
+      <div class="col-sm-4 blog-sidebar">
+        <div class="panel panel-default author_right ">
+          <div class="panel-body">
+            <div class="author_header">
+              <div class="headerImg">
+                <img width="100%" height="100%" src="../images/header0.jpg" alt="头像" srcset="">
+              </div>
+              <div class="headerName">
+                <h2>跬步千里</h2>
+
+                做一个NB的码农，且不止于码农
+              </div>
+            </div>
+
+            <div class="author_body">
+              <p>回复的回复可见的恢复到健身房锻炼时间的翻开历史的回复的科技孵化的空间是否断开连接是否的科技</p>
+              <p>发达科技示范基地撒谎发动机是否打开就是的风口浪尖附近的拉萨酱豆腐看来洒家的放开了发的了解对</p>
+            </div>
+
+            <div class="author_footer">
+              <div class="contact_title">联系方式</div>
+              <div class="contact_icon">
+                <div class="qq">
+                  <a href="tencent://message/?uin=2592901973&amp;Site=有事Q我&amp;Menu=yes">
+                    <img src="../images/header_qq.png" alt="" srcset="">
+                  </a>
+                </div>
+                <div class="weichat">
+                  <a href="https://github.com/nsuedu">
+                    <img src="../images/header_github.png" alt="" srcset="">
+                  </a>
+                </div>
+                <div class="github">
+                  <img src="../images/header_weichat.png" alt="" srcset="">
+                </div>
+                <div class="xinlang">
+                  <img src="../images/header_xinlang.png" alt="" srcset="">
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+        <!--右侧作者栏-->
+
+        <!--热门文章-->
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">热门文章</h3>
+          </div>
+          <div class="list-group hotArtical_titleList">
+            <a href="#" class="list-group-item">
+              <span class="label label-primary">01</span>
+              Cras justo odio Dapibus ac facilisis in Dapibus ac facilisis in Dapibus ac facilisis in Dapibus ac facilisis in Dapibus ac facilisis in Dapibus ac facilisis in
+            </a>
+            <a href="#" class="list-group-item">
+              <span class="label label-primary">02</span>
+              Dapibus ac facilisis in
+            </a>
+            <a href="#" class="list-group-item">
+              <span class="label label-primary">03</span>
+              Dapibus ac facilisis in
+            </a>
+            <a href="#" class="list-group-item">
+              <span class="label label-primary">04</span>
+              的飞机开绿灯就是放大看了
+            </a>
+            <a href="#" class="list-group-item">
+              <span class="label label-primary">05</span>
+              回复的回复可见
+            </a>
+            <a href="#" class="list-group-item">
+              <span class="label label-primary">02</span>
+              大佛id就是开了房间的考虑考虑但是看了
+            </a>
+          </div>
+        </div>
+        <!--热门文章-->
+
+        <!--标签云-->
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">标签云</h3>
+          </div>
+          <div id="tagscloud">
+            <a href="http://sc.chinaz.com/" class="tagc1">react</a>
+            <a href="http://sc.chinaz.com/" class="tagc2">redux</a>
+            <a href="http://sc.chinaz.com/" class="tagc5">react-redux</a>
+            <a href="http://sc.chinaz.com/" class="tagc2">react-router</a>
+            <a href="http://sc.chinaz.com/" class="tagc1">react-router-dom</a>
+            <a href="http://sc.chinaz.com/" class="tagc2">webpack</a>
+            <a href="http://sc.chinaz.com/" class="tagc5">redux-thunk</a>
+            <a href="http://sc.chinaz.com/" class="tagc2">redux-saga</a>
+            <a href="http://sc.chinaz.com/" class="tagc2">antvG6</a>
+            <a href="http://sc.chinaz.com/" class="tagc5">antdDesign</a>
+            <a href="http://sc.chinaz.com/" class="tagc2">ES6</a>
+            <a href="http://sc.chinaz.com/" class="tagc1">java</a>
+            <a href="http://sc.chinaz.com/" class="tagc2">js特效</a>
+            <a href="http://sc.chinaz.com/" class="tagc5">生活</a>
+            <a href="http://sc.chinaz.com/" class="tagc1">react</a>
+            <a href="http://sc.chinaz.com/" class="tagc2">redux</a>
+            <a href="http://sc.chinaz.com/" class="tagc5">react-redux</a>
+            <a href="http://sc.chinaz.com/" class="tagc2">react-router</a>
+            <a href="http://sc.chinaz.com/" class="tagc1">react-router-dom</a>
+            <a href="http://sc.chinaz.com/" class="tagc2">webpack</a>
+            <a href="http://sc.chinaz.com/" class="tagc5">redux-thunk</a>
+            <a href="http://sc.chinaz.com/" class="tagc2">redux-saga</a>
+            <a href="http://sc.chinaz.com/" class="tagc2">antvG6</a>
+            <a href="http://sc.chinaz.com/" class="tagc5">antdDesign</a>
+            <a href="http://sc.chinaz.com/" class="tagc2">ES6</a>
+            <a href="http://sc.chinaz.com/" class="tagc1">java</a>
+            <a href="http://sc.chinaz.com/" class="tagc2">js特效</a>
+            <a href="http://sc.chinaz.com/" class="tagc5">生活</a>
+          </div>
+        </div>
+        <!--标签云-->
+      </div>
+      <!-- class="col-sm-4 blog-sidebar"-->
+    </div>
+    <!--class="row"-->
+
+    <!--友情链接-->
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="friendship-link">
+          <div class="order">
+            <span class="line"></span>
+            <span class="txt">友情链接</span>
+            <span class="line"></span>
+          </div>
+          <div class="allLinks">
+            <div class="allLinks-item">XXXXX的博客</div>
+            <div class="allLinks-item">XXXXX学习论坛</div>
+            <div class="allLinks-item">XXXXX的博客</div>
+            <div class="allLinks-item">XXXXX学习论坛</div>
+            <div class="allLinks-item">XXXXX的博客</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--友情链接-->
+  </div>
+  <!--class="container"-->
+  <div class="rocket"></div>
+  <footer class="blog-footer">
+    <p>博客模板由
+      <a href="http://getbootstrap.com">Bootstrap</a> 提供
+      
+    <p>
+      <a href="#">回到顶部</a>
+    </p>
+  </footer>
+
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+  <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <script src="../js/bootstrap/ie10-viewport-bug-workaround.js"></script>
+  <script src="../js/zzsc.js"></script>
+  <script src="../js/backToTop.js"></script>
+  <script src="../js/index.js"></script>
+  <script>
+
+  </script>
+</body>
+
+</html>
+
+<!--
+          <div class="order">
+            <span style="white-space:pre;"> </span>
+            <span class="line"></span>
+            <span style="white-space:pre;"> </span>
+            <span class="txt">友情链接</span>
+            <span style="white-space:pre;"> </span>
+            <span class="line"></span>
+          </div>
+
+-->

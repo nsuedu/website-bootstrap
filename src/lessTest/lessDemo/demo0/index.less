@@ -1,0 +1,206 @@
+/*
+一.注释
+*/
+
+// 二.变量    @变量名:值 ------有利于样式的重用和维护
+@test_width: 300px;
+.box {
+  width: @test_width;
+  height: @test_width;
+  background-color: yellow;
+}
+
+/*
+三.混合: 
+1. 在a选择器中写入b选择器， 则b选择器的样式就可以加入到a中------有利于样式的重用
+2. 可带参数/变量,可带默认值
+*/
+
+.border1(@boder_width: 10px) {
+  border: solid red @boder_width;
+  width: 100px;
+  height: 100px;
+}
+
+.hunhe1 {
+  .border1()
+}
+
+.hunhe2 {
+  .border1(30px);
+  margin-left: 100px
+}
+
+/*
+// 匹配模式 类似if语句(满足条件才能匹配)
+*/
+
+.zfx {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  border-width: 100px;
+  border-color: red blue green yellow;
+  border-style: solid;
+}
+
+.sanjiao {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  border-width: 100px;
+  border-color: transparent transparent red transparent;
+  border-style: dashed dashed solid dashed;
+}
+
+// -------------------------------
+// 匹配模式必写
+.triangle(@_, @w: 100px, @c#ccc) {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+// 朝上的三角形
+.triangle(top, @w: 100px, @c#ccc) {
+  border-width: @w; // 上 右 下 左
+  border-color: transparent transparent @c transparent; // 上 右 下 左
+  border-style: dashed dashed solid dashed;
+}
+
+// 朝下的三角形
+.triangle(bottom, @w: 100px, @c#ccc) {
+  border-width: @w;
+  border-color: @c transparent transparent transparent;
+  border-style: solid dashed dashed dashed;
+} 
+// 朝左的三角形
+.triangle(left, @w: 5px, @c#ccc) {
+  border-width: @w;
+  border-color: transparent @c transparent transparent;
+  border-style: dashed solid dashed dashed;
+} // 朝右的三角形
+.triangle(right, @w: 5px, @c#ccc) {
+  border-width: @w;
+  border-color: transparent transparent transparent @c;
+  border-style: dashed dashed dashed solid;
+}
+
+// 使用  
+.sanjiaoTop {
+  .triangle(top, 100px, red);
+}
+
+.sanjiaoBottom {
+  .triangle(bottom, 100px, red);
+}
+
+.sanjiaoLeft {
+  .triangle(left, 100px, red);
+}
+
+.sanjiaoRight {
+  .triangle(right, 100px, red);
+} 
+// 匹配模式例子2
+.pos(r) {
+  position: relative;
+}
+
+.pos(a) {
+  position: absolute;
+}
+
+.pos(f) {
+  position: fixed;
+}
+
+.pipe {
+  .pos(r);
+  top: 50px;
+  width: 200px;
+  height: 200px;
+  background-color: green;
+  
+}
+
+
+// 运算(像素运算， 颜色运算)
+/*
+@test_aWidth:300px;
+
+.box_02{
+  width: @test_aWidth-20;
+  color: #ccc - 10;
+}
+*/
+
+
+
+
+/*
+不使用less的嵌套
+.list{ }
+
+.list li{ }
+
+.list a{ }
+
+.list span{ }
+
+
+// 嵌套
+1. & 对伪类使用 : hover  focus
+2. 对连接的使用
+ &-item
+*/
+
+.list{
+  width: 600px;
+  margin: 30px auto;
+  padding: 0;
+  list-style: none;
+
+  li{
+    height: 30px;
+    background-color: pink;
+    margin-bottom: 5px;
+
+  }
+  // 避免嵌套层数过多
+  a{
+    float: left;
+    // 代表上一层选择器
+    &:hover{
+      color: red;
+    }
+  }
+  span{
+    float: right;
+  }
+}
+
+/*
+ @arguments变量:包含所有传进来的参数
+如果不想单独处理每一个参数就可以如下
+
+ */
+.border_arguments(@width:30px,@color:red,@line:solid){
+  border: @arguments;
+}
+
+.test_arguments{
+  .border_arguments();
+}
+
+/*
+避免编译  ~
+*/
+.test_03{
+  width: ~'calc(300px-30px)';
+}
+/*
+!important 最高优先级--比如混合模式后面加上important
+*/
+
+

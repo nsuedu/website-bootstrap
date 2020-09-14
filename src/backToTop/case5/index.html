@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>回到顶部</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            height: 1500px;
+            margin: 0 auto;
+            border: 1px solid red;
+        }
+
+        #btn {
+            width: 40px;
+            height: 40px;
+            position: fixed;
+            left: 50%;
+            bottom: 30px;
+            background: url('./backToTop0.png') no-repeat left top;
+            margin-left: 610px;
+        }
+
+        #btn:hover {
+            background: url('./backToTop0.png') no-repeat left -40px;
+        }
+
+        #rocket {
+            height: 180px;
+            width: 70px;
+            position: fixed;
+            right: 10px;
+            bottom: 20px;
+            background-image: url('./o_rocket_button_up.png');
+            /*阴影 background-position: -40px 20px;*/
+            /*准备 background-position: 187px 20px;*/
+            /*开火 background-position: -335px 20px; background-position: -485px 20px;*/
+            background-position: -187px 20px;
+            border: 1px solid lightblue;
+        }
+
+        #rocket:hover {}
+
+        .mymoveClass {
+            animation: mymove 1s ease-in 0s infinite normal;
+            -webkit-animation: mymove 1s ease-in 0s infinite normal;
+        }
+
+        @keyframes mymove {
+            0% {
+                background-position: -335px 40px;
+            }
+            25% {
+                background-position: -335px 30px;
+            }
+            50% {
+                background-position: -335px 25px;
+            }
+            100% {
+                background-position: -335px 20px;
+            }
+
+        }
+
+        @-webkit-keyframes mymove {
+            /*Safari and Chrome*/
+            0% {
+                background-position: -187px 20px;
+            }
+            25% {
+                background-position: -335px 20px;
+            }
+            50% {
+                background-position: -335px 10px;
+            }
+            100% {
+                background-position: -335px 0px;
+            }
+        }
+
+        .mymove1Class {
+
+            animation: mymove1 2s linear 0s 1 normal;
+            -webkit-animation: mymove1 2s linear 0s 1 normal;
+        }
+
+        @keyframes mymove1 {
+            from {
+                bottom: 0px;
+                background-position: -335px -20px;
+            }
+            to {
+                top: 0px;
+                background-position: -335px -20px;
+            }
+        }
+
+        @-webkit-keyframes mymove1
+        /*Safari and Chrome*/
+
+            {
+            from {
+                bottom: 100px;
+                background-position: -335px -20px;
+            }
+            to {
+                top: 0px;
+                background-position: -335px -20px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="box">
+        <img src="./backToTop0.png" />
+        <div id="rocket"></div>
+    </div>
+    <div style="display:none" href="javascript:;" id="btn" title="回到顶部"></div>
+
+    <script>
+        var topbtn = document.getElementById("btn");
+        var timer = null;
+        //获取屏幕的高度
+        var pagelookheight = document.documentElement.clientHeight;
+
+        window.onscroll = function () {
+            //滚动超出高度，显示按钮，否则隐藏
+            var backtop = document.body.scrollTop !== 0 ? document.body.scrollTop : document.documentElement.scrollTop;
+            //  滚动超过一频    应该显示
+            if (backtop >= pagelookheight) {
+                topbtn.style.display = "block";
+            }
+            //   不显示
+            else {
+                topbtn.style.display = "none";
+            }
+        }
+
+        topbtn.onclick = function () {
+            timer = setInterval(function () {
+                var backtop1 = document.body.scrollTop !== 0 ? document.body.scrollTop : document.documentElement.scrollTop;
+                //速度操作  减速
+                var speedtop = backtop1 / 5;
+                document.body.scrollTop = document.documentElement.scrollTop = backtop1 - speedtop;  //高度不断减少
+                if (backtop1 == 0) {  //滑动到顶端
+                    clearInterval(timer);  //清除计时器
+                }
+            }, 30);
+        }
+
+        const rocket = document.getElementById('rocket');
+        let timer0 = null;
+        rocket.addEventListener('mouseover', () => {
+            rocket.classList.remove("mymove1Class");
+            rocket.classList.add("mymoveClass");
+        })
+        rocket.addEventListener('mouseout', () => {
+            rocket.classList.remove("mymoveClass");
+
+        })
+        rocket.addEventListener('click', () => {
+            rocket.classList.remove("mymoveClass");
+            rocket.classList.add("mymove1Class");
+
+            timer = setInterval(function () {
+                var backtop1 = document.body.scrollTop !== 0 ? document.body.scrollTop : document.documentElement.scrollTop;
+                //速度操作  减速
+                var speedtop = backtop1 / 20;
+                document.body.scrollTop = document.documentElement.scrollTop = backtop1 - speedtop;  //高度不断减少
+                if (backtop1 == 0) {  //滑动到顶端
+                    clearInterval(timer);  //清除计时器
+                }
+            }, 30);
+        })
+
+    </script>
+</body>
+
+</html>

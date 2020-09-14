@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .topdirection {
+            font-size: 0;
+            width: 0;
+            height: 0;
+            line-height: 0;
+            border-width: 100px;
+            border-style: solid;
+            border-color: transparent transparent #A9DBF6 transparent;
+        }
+
+
+        .a {
+            border-bottom: 1px solid #aaa;
+            height: 50px;
+            width: 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .b {
+            position: absolute;
+            display: block;
+            top: 0px;
+            left: 0px;
+            width: 100px;
+            height: 50px;
+        }
+
+        .b i,
+        .b em {
+            position: absolute;
+            left: 0px;
+            bottom: 0px;
+            border-color: transparent;
+            border-color: rgba(255, 255, 255, 0);
+            border-style: solid;
+            border-width: 0 50px 50px 50px;
+        }
+
+        .b i {
+            border-bottom-color: #aaa;
+        }
+
+        .b em {
+            border-bottom-color: #FFF;
+            bottom: -1px;
+        }
+
+        .text {
+            position: absolute;
+            bottom: 10px;
+            background: none;
+            border: none;
+            outline: none;
+            text-align: center;
+            width: 100%;
+        }
+
+
+
+        .triangle-topright {
+            width: 0;
+            height: 0;
+            border-top: 60px solid lightgray;
+            border-left: 60px solid transparent;
+        }
+        .mytext{
+            margin-top: -55px;
+            margin-left: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="triangle-topright"></div>
+    <div class="mytext">回滚</div>
+</body>
+
+</html>

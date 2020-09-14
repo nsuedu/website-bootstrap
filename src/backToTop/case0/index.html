@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #container {
+            height: 2000px;
+        }
+
+        #backToTop0 {
+            position: absolute;
+            top: 900px;
+            right: 10px;
+            height: 30px;
+            width: 200px;
+            border: 1px solid black;
+            background: lightblue
+        }
+        #backToTop1{
+            position:absolute;right:10px;top: 950px;
+            font-size: 20px;
+        }
+        #backToTop2 {
+            position: absolute;
+            top: 1000px;
+            right: 10px;
+            height: 30px;
+            width: 200px;
+            border: 1px solid black;
+            background: lightcoral
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="header"></div>
+        <h1>无动画与特殊CSS样式实现"回到顶部"</h1>
+        <h1>回到顶部: window属性的3种实现</h1>
+
+        <h2>
+            1.滚动窗口至文档中的特定位置 参数:左上角的像素点的横坐标，纵坐标<br>
+            <code>window.scroll(0, 0) </code>
+        </h2>
+        <h2>
+            2.滚动到文档中的某个坐标 参数:文档中的横轴坐标，纵坐标<br>
+            <code> window.scrollTo(0,0) </code>
+        </h2>
+        <h2>
+                3.在窗口中按指定的距离滚动文档,<br>
+                X 是水平滚动的偏移量，单位：像素。<br>
+                Y 是垂直滚动的偏移量，单位：像素。<br>
+                正数坐标会朝页面的右下方滚动，负数坐标会滚向页面的左上方。
+                <br>
+            <code>window.scrollBy(-1000, -1000);</code>
+        </h2>
+        <hr>
+        <h1>
+            回到顶部:锚点实现(会在url地址加后缀，不推荐)
+        </h1>
+        <hr>
+        <h1>
+            回到顶部:element的属性的2种实现
+        </h1>
+        <h2>
+            1.多浏览器兼容<br>
+            <code>  document.body.scrollTop  ===0 ? document.documentElement.scrollTop =0:document.body.scrollTop=0;</code>
+        </h2>
+        <h2>
+                1.浏览器不兼容---实现方式与锚点类似<br>
+                <code> 
+                        const header =document.getElementById('header') <br>
+                        header.scrollIntoView(); 
+                </code>
+            </h2>
+
+        <div id="backToTop0">通过window属性回到顶部</div>
+        <div id="backToTop1"><a href="#header">通过锚点回到顶部</a></div>
+        <div id="backToTop2">通过element属性回到顶部</div>
+    </div>
+
+    <script>
+        const backToTop0 = document.getElementById('backToTop0');
+        backToTop0.addEventListener('click', () => {
+            window.scroll(0, 0) 
+            // window.scrollTo(0,0)
+            // window.scrollBy(-1000, -1000); 
+        })
+
+        //-------------------
+        const backToTop2 = document.getElementById('backToTop2');
+        backToTop2.addEventListener('click', () => {
+
+           // document.body.scrollTop  ===0 ? document.documentElement.scrollTop =0:document.body.scrollTop=0;
+            const header =document.getElementById('header')
+            header.scrollIntoView(); 
+        })
+        
+    </script>
+</body>
+
+</html>

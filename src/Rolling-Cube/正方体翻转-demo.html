@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正方体翻转</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			-webkit-perspective: 800;
+			background: url(images/cross.jpg) no-repeat;
+			background-size: 100% 100%; 
+		}
+		#main{
+			width: 250px;
+			height: 250px;
+			position: relative;
+			top: 250px;
+			margin: 0 auto 0;
+			cursor: pointer;
+			/*background: #ccc;*/
+			transform-style: preserve-3d;
+			/*animation: rotate 8s linear 0s infinite;*/
+		}
+		#main div{
+			width: 200px;
+			height: 200px;
+			left: 0;
+			top: 0;
+			position: absolute;
+			background: rgba(255,255,255,.3);
+			box-shadow: inset 0 0 10px rgba(0,0,0,.2);
+		}
+		@keyframes rotate{
+			0%{transform:rotateY(0deg);}
+			100%{transform:rotateY(360deg);}
+		}
+		#main div:nth-child(1){
+			transform: translateZ(100px);
+		}
+		#main div:nth-child(2){
+			transform: translateZ(-100px);
+		}
+		#main div:nth-child(3){
+			transform: rotateX(90deg) translateZ(-100px);
+		}
+		#main div:nth-child(4){
+			transform: rotateX(90deg) translateZ(100px);
+		}
+		#main div:nth-child(5){
+			transform: rotateY(90deg) translateZ(100px);
+		}
+		#main div:nth-child(6){
+			transform: rotateY(90deg) translateZ(-100px);
+		}
+
+		#main ul{
+			width: 100px;
+			height: 100px;
+			left: 50px;
+			top: 50px;
+			position: absolute;
+			list-style: none;
+			transform-style: preserve-3d;
+			/*border: 1px solid;*/
+		}
+		#main ul li{
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			left: 0px;
+			top: 0px;
+		}
+		#main ul li:nth-child(1){
+			background: url(images/cross5.png) no-repeat;
+			transform: translateZ(50px);
+		}
+		#main ul li:nth-child(2){
+			background: url(images/cross6.png) no-repeat;
+			transform: translateZ(-50px);
+		}
+		#main ul li:nth-child(3){
+			background: url(images/cross3.png) no-repeat;
+			transform: rotateX(90deg) translateZ(50px);
+		}
+		#main ul li:nth-child(4){
+			background: url(images/cross2.png) no-repeat;
+			transform: rotateX(90deg) translateZ(-50px);
+		}
+		#main ul li:nth-child(5){
+			background: url(images/cross1.png) no-repeat;
+			transform: rotateY(90deg) translateZ(50px);
+		}
+		#main ul li:nth-child(6){
+			background: url(images/cross4.jpg) no-repeat;
+			transform: rotateY(90deg) translateZ(-50px);
+		}
+
+	</style>
+</head>
+<body>
+	<div id="main">
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<ul class="out">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		<!-- <img src="images/cross1.png" alt="">
+		<img src="images/cross2.png" alt="">
+		<img src="images/cross3.png" alt="">
+		<img src="images/cross4.jpg" alt="">
+		<img src="images/cross5.png" alt="">
+		<img src="images/cross6.png" alt=""> -->
+	</div>
+	<script type="text/javascript" src='js/jquery1.7.js'></script>
+	<script type="text/javascript">
+	$(function(){
+		$("body").css({"width":$(window).width(),"height":$(window).height()});
+
+		// $("#main").hover(function(){
+		// 	$("#main div").eq(0).css({
+		// 		"transform":"translateZ(200px)",
+		// 		"transition":"2s"
+		// 	})
+		// 	$("#main div").eq(1).css({
+		// 		"transform":"translateZ(-200px)",
+		// 		"transition":"2s"
+		// 	})
+		// 	$("#main div").eq(2).css({
+		// 		"transform":"rotateX(90deg) translateZ(-200px)",
+		// 		"transition":"2s"
+		// 	})
+		// 	$("#main div").eq(3).css({
+		// 		"transform":"rotateX(90deg) translateZ(200px)",
+		// 		"transition":"2s"
+		// 	})
+		// 	$("#main div").eq(4).css({
+		// 		"transform":"rotateY(90deg) translateZ(200px)",
+		// 		"transition":"2s"
+		// 	})
+		// 	$("#main div").eq(5).css({
+		// 		"transform":"rotateY(90deg) translateZ(-200px)",
+		// 		"transition":"2s"
+		// 	})
+		// },function(){
+		// 	$("#main div").eq(0).css({
+		// 		"transform":"translateZ(100px)",
+		// 		"transition":"2s"
+		// 	})
+		// 	$("#main div").eq(1).css({
+		// 		"transform":"translateZ(-100px)",
+		// 		"transition":"2s"
+		// 	})
+		// 	$("#main div").eq(2).css({
+		// 		"transform":"rotateX(90deg) translateZ(-100px)",
+		// 		"transition":"2s"
+		// 	})
+		// 	$("#main div").eq(3).css({
+		// 		"transform":"rotateX(90deg) translateZ(100px)",
+		// 		"transition":"2s"
+		// 	})
+		// 	$("#main div").eq(4).css({
+		// 		"transform":"rotateY(90deg) translateZ(100px)",
+		// 		"transition":"2s"
+		// 	})
+		// 	$("#main div").eq(5).css({
+		// 		"transform":"rotateY(90deg) translateZ(-100px)",
+		// 		"transition":"2s"
+		// 	})
+		// })
+
+	})
+
+
+	</script>
+</body>
+</html>

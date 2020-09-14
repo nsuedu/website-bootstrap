@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="UTF-8" />
+    <title></title>
+  </head>
+  <style>
+    body {
+      width: 600px;
+      height: 600px;
+      border: solid 1px red;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .one {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      border: solid 1px red;
+      margin: 50px;
+    }
+    .one1 {
+      -webkit-animation: myfirst 3s 2 linear;
+      -webkit-animation-direction: alternate;
+    }
+
+    @keyframes myfirst {
+      from {
+        transform: rotate(0);
+      }
+      to {
+        transform: rotate(-360deg);
+      }
+    }
+
+    .two {
+      width: 200px;
+      height: 200px;
+      background-color: green;
+      border: solid 1px green;
+      margin: 100px;
+    }
+    .two1 {
+      -webkit-animation: myfirst1 3s 2 linear;
+      -webkit-animation-direction: alternate;
+    }
+
+    @keyframes myfirst1 {
+      from {
+        transform: rotateY(0deg);
+      }
+      to {
+        transform: rotateY(-360deg);
+      }
+    }
+  </style>
+  <body>
+    <h2>
+      页面上有2个div，点击时分别实现缓慢的2D旋转和3D旋转动画如何作，旋转完成后能逆向旋转恢复又如何作？
+    </h2>
+    <div id="2D" class="one">2D旋转</div>
+
+    <div id="3D" class="two">3D旋转</div>
+  </body>
+  <script>
+    var oneDiv = document.getElementsByClassName("one")[0];
+    oneDiv.addEventListener("click", function(e) {
+      e.target.className += " " + "one1";
+    });
+
+    var two1Div = document.getElementsByClassName("two")[0];
+    two1Div.addEventListener("click", function(e) {
+      e.target.className += " " + "two1";
+    });
+  </script>
+</html>

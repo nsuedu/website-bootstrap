@@ -1,0 +1,168 @@
+@charset"utf-8";
+
+
+/*
+导入css  @import(less)"a.css"
+导入less @import"b.less"
+*/
+
+.reset{
+  *{margin: 0;padding: 0;}
+  ul,ol{list-style: none;}
+  a{text-decoration: none;}
+  img{border: none}
+}
+
+// 清除浮动
+.clearfix{
+  &:after{
+    content:'';
+    display: block;
+    clear: both;
+  }
+  zoom: 1;
+}
+
+@fontSize14: 14px;
+
+// 左浮动
+.fl(@fl:left){
+  float: @fl;
+  display: inline;
+}
+
+.fr(@fr:right){
+  float: @fr;
+  display: inline;
+}
+
+// ----------------------------------------
+
+@td_width: 616px;
+.font14 {
+  font-size: 14px;
+}
+
+
+
+
+
+
+
+// div 居中
+.bc {
+  margin-left: auto;
+  margin-right: auto;
+  .reset;
+}
+
+.tudou_main {
+  width: @td_width;
+  .bc();
+}
+
+.title {
+  @h: 62px;
+  @border_color: #D0D0D0; //  height  与line-height相同可以使文字垂直居中
+  height: @h;
+  line-height: @h; // 边框顶部一条灰色的横线
+  border-top: solid 1px @border_color; // 局浏览器顶部20px
+  margin-top: 20px;
+  h3 {
+    color: #575757; // font-size: 22px;
+    // font-family: '微软雅黑';
+    // font-weight: normal; 
+    font: 22px/@h '微软雅黑';
+    width: 106px; // 边框顶部一条粉色的横线
+    border-top: solid 2px #F97674; // 距离父元素 -1px
+    margin-top: -1px;
+    position: relative;
+    float: left; // 因为  margin-top: -1px;
+    height: @h - 1;
+  }
+  @color: #020101;
+  &_nav {
+    margin-top: 4px;
+    float: right;
+    font-size: @fontSize14;
+    color: @color;
+    li {
+      float: left;
+    } // 竖线之间的距离
+    span {
+      margin: 0 11px;
+    }
+    a {
+      color: @color;
+      &:hover {
+        color: red;
+      }
+    }
+  }
+}
+
+// 内容
+.content{
+  margin-right: -32px;
+  .clearfix;
+}
+
+
+
+.item {
+  @w: 130px;
+  @h: 164px;
+  @img_h: 78px; // 左浮动
+  float: left;
+  margin-left: 32px;
+  width: @w;
+  height: @h;
+  &_img {
+    height: @img_h;
+    position: relative; // 距离下一个元素的间距
+    margin-bottom: 5px;
+    img {
+      width: @w;
+      height: @img_h;
+      display: block;
+    }
+    span {
+      position: absolute;
+      right: 0;
+      bottom: 0px;
+      width: 35px;
+      height: 18px;
+      line-height: 18px;
+      font-size: @fontSize14 - 2;
+      color: black;
+      background-position: 0 0;
+      background-repeat: no-repeat; // 文字靠后多少px
+      text-indent: 9px;
+    }
+    .cq {
+      background-image: url(./images/star.jpg)
+    }
+  }
+  &_list {
+    // 用户名行高
+    line-height: 22px;
+    font-size: @fontSize14 - 2;
+    a {
+      color: #666;
+      &:hover {
+        color: red
+      }
+    }
+    .userName,
+    .play,
+    .mess {
+      padding-left: 17px;
+      background-position: left center;
+      background-repeat: no-repeat;
+      background-image: url(./images/play.png);
+      background-size: 16px;
+      margin-right: 3px;
+      padding-top: 1px;
+    }
+  }
+}

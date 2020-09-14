@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style>
+		body,input{
+			font-size: 18px;
+		}
+	</style>
+	<body >
+		<input type="button" value="1.自动创建表格并显示信息" id="show" >
+		<input type="button" value="2.求平均成绩" id="avgbtn" >
+		<input type="button" value="3.筛选要求3" id="filter" ><br />
+		 	要求3：筛选平均成绩在70-80之间 <br />
+			年龄>=20<br />
+			性别：男<br />
+			党员：是<br />
+			--------符合条件的学生字体为红色<br />
+			<font color="green" size="5">
+				注：双击相应数据可以修改
+			</font>
+		<input type="button" value="语文升序" id="COrder" >
+		<input type="button" value="数学升序" id="MOrder" >
+		<input type="button" value="英语升序" id="EOrder" >
+		<div id="d1"></div>
+	</body>
+	<script src="js/jquery-1.11.0.js"></script>
+	<script src="js/CreatTable.js"></script>
+</html>

@@ -1,0 +1,49 @@
+
+div{
+    font-family: 'chinaHandWrite';  
+}
+
+.aboutMe{
+    width: 100%;
+    
+    border: 1px solid gainsboro;
+    background: whitesmoke;
+}
+.aboutMe-title{
+    width: 90%;
+    height: 40px;
+    border-bottom:  1px solid #999;
+    margin: 0px 5% 0px 5%;
+}
+.aboutMe-title h4{  
+    line-height: 40px;
+    text-align: center;
+ }
+
+
+.aboutMe-content{
+    width: 100%;
+    /*
+    height: 200px;
+    */
+}
+.aboutMe-content-item{
+    margin-top: 20px;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.aboutMe-content-item>.react{
+    width: 5px;
+    height: 20px;
+    background: blue;
+    float: left;
+    margin-right: 10px;
+}
+.aboutMe-content-item-content{
+    /*首行缩进， 字体间距，行间距*/
+    text-indent: 25px; 
+    letter-spacing:2px;
+    line-height: 30px;
+}
+
+

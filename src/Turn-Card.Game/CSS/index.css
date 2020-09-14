@@ -1,0 +1,118 @@
+
+body{
+    text-align: center;
+    background-image: url("../Img/bg.jpg");
+}
+
+#game{
+    width: 502px;
+    height: 462px;
+    margin:0 auto;
+    border:1px #666 solid;
+    border-radius: 10px;
+    background-image: url("../Img/table.jpg");
+    position: relative;
+    display: -webkit-box;
+    -webkit-box-pack:center;
+    -webkit-box-align:center;
+
+
+}
+#cards{
+    width: 380px;
+    height: 400px;
+    position: relative;
+}
+.card{
+    width: 80px;
+    height: 120px;
+    position: absolute;
+
+}
+
+.face{
+    width: 100%;
+    height: 100%;
+    border-radius:10px;
+    position: absolute;
+    -webkit-backface-visibility:hidden;
+    -webkit-transform:all 3s;
+
+
+}
+/*牌底*/
+.front{
+
+    background-color: #999;
+    background-image: url("../Img/deck.png");
+    background-position: 0px -480px;
+    z-index: 10;
+
+
+
+
+}
+
+/*牌面*/
+.back{
+    background-color: #efefef;
+    background-image:url("../Img/deck.png");
+
+    -webkit-transform:rotateY(180deg);
+    z-index: 8;
+
+
+}
+.card:hover{
+    box-shadow: 0px 0px 40px #aaa;
+}
+/*
+@keyframes  myfirst{
+    from{
+        transform:rotateY(0);
+    }
+    to{
+        transform:rotateY(180deg);
+    }
+}
+
+.front:hover{
+    -webkit-animation:myfirst 2s 1 linear;
+}
+*/
+.cardAJ{ background-position: -800px 0;}
+.cardAQ{background-position: -880px 0}
+.cardAK{background-position: -960px 0}
+.cardBJ{background-position: -800px -120px}
+.cardBQ{background-position: -880px -120px}
+.cardBK{background-position: -960px -120px}
+
+.card-flipped .front{
+    z-index: 8;
+    -webkit-transform:rotateY(180deg);
+}
+.card-flipped .back{
+    z-index: 10;
+    -webkit-transform:rotateY(0deg);
+}
+
+.card-removed{
+    opacity: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

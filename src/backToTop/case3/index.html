@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #btn1 {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+  <div style="height: 1200px;">
+      <h2>
+            setInterval定时器与document.documentElement.scrollTop || document.body.scrollTop实现<br>
+            1.计算速度（缓冲）向下取整<br>
+            2.当scrollTop==0时需要清除定时器<br>
+            3.需要判断是用户还是js操作滚动条，如果是用户操作就清除定时器<br>
+     
+            也可以使用setTimout模拟setInterval
+        </h2>
+        <input id="btn1" type="button" value="回到顶部" />
+  </div>
+
+    <script src="./js/index.js"></script>
+    <script>
+
+
+        var oBtn = document.getElementById("btn1");
+        var timer = null;
+        //申明一个变量看是否为系统还是用户滚动
+        var sBys = true;
+        window.onscroll = () => {
+            if (!sBys) {
+                //若滚动时定时器存在则清除定时器
+                clearInterval(timer);
+            }
+            sBys = false;
+        }
+        oBtn.addEventListener('click', () => {
+            timer = setInterval(() => {
+                //获取scrollTop
+                var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+                //当点击按钮回到顶部时计算缓冲速度
+                var ispeed = Math.floor(-scrollTop / 8);
+                if (scrollTop == 0) {
+                    clearInterval(timer)
+                }
+                sBys = true;
+                document.documentElement.scrollTop = document.body.scrollTop = scrollTop + ispeed;
+            }, 100)
+        })
+
+
+    </script>
+</body>
+
+</html>
