@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    666666666
+  </body>
+  <script>
+    // 字符串转数组
+    const str = `the quick brown fox jumped`;
+    const newArray = str.split(" ");
+    console.log("字符串生成数组: ");
+    console.log(newArray);
+
+    // 数组转字符串
+    const newStr = newArray.join(" ");
+    console.log("数组转字符串: ");
+    console.log(newStr);
+
+    // 数组的深浅复制
+
+    // 1. 浅复制--直接赋值，二者的在内存中的地址还是一行
+    // 其中一个数组的改变还是会影响另外一个的改变
+    const newArray1 = newArray;
+
+    // 2. 数组深复制
+    const deepCopy0 = function (arr1, arr2) {
+      for (var i = 0; i < arr1.length; ++i) {
+        arr2[i] = arr1[i];
+      }
+    };
+
+    var nums = [];
+    for (var i = 0; i < 100; ++i) {
+      nums[i] = i + 1;
+    }
+
+    var newNums = [];
+
+    deepCopy0(nums, newNums);
+
+    var newNums1 = [].concat(nums);
+
+    var newNums2 = nums.slice(0, -1);
+
+    nums[0] = 400;
+    console.log("数组深复制不会影响其他数组: ");
+    console.log(newNums[0]);
+
+    console.log(newNums1[0]);
+
+    console.log(newNums2[0]);
+
+    // ------------数组的存取函数
+    const searchArray = [1, 2, 3, 4, 5, 6];
+
+    /*
+    searchArray.indexOf();
+    
+    searchArray.lastIndexOf();
+    
+    searchArray.join(',');
+    searchArray.toString();
+    searchArray.concat([]);
+    
+    //
+    searchArray.slice(0,-1);
+    
+    // 截取新数组(截取的起始索引，截取的长度)
+    // 新增元素
+    // 移除元素
+    searchArray.splice(0,2);
+    //
+    searchArray.push('1');
+    searchArray.unshift();
+    searchArray.shift();
+    searchArray.pop();
+    */
+
+    /*
+    const newA = ['4','5','6'];
+    
+    searchArray.splice(3,0,...newA);
+    
+    console.log(searchArray)
+    
+    
+    searchArray.reverse();
+    
+    // 对数字排序
+    const searchArray3 =[100,12,1,89,90,2];
+    searchArray3.sort((a,b)=>a-b);
+    console.log('数组中的数字排序-----------------')
+    console.log(searchArray3);
+    
+    
+    
+    const searchArrayObj=[
+        {age:100,name:'wang'},
+        {age:12,name:'wang1'},
+        {age:1,name:'wang2'},
+        {age:89,name:'wang3'},
+        {age:2,name:'wang4'},
+    ];
+    const compareObj =(keyword)=>{
+        return (item1,item2)=>item1[keyword] - item2[keyword];
+    }
+    
+    searchArrayObj.sort(compareObj('age'));
+    
+    console.log('数组中的对象排序-----------------')
+    console.log(searchArrayObj);
+    */
+
+    // --------迭代方法
+    // reduce实现数字累加减乘除
+    const searchArray_reduce = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+    const newArray_reduce = searchArray_reduce.reduce(
+      (count, current, index, source) => {
+        console.log(count, current, index, source);
+        return count + current;
+      },
+      0
+    );
+    console.log("reduce实现数字累加减乘除-----------------");
+    console.log(newArray_reduce);
+
+    // 求最大值
+    const maxCallback = (acc, cur) => Math.max(acc.x, cur.x);
+    const maxCallback2 = (max, cur) => Math.max(max, cur);
+    const result = [{ x: 22 }, { x: 42 }]
+      .map((el) => el.x)
+      .reduce(maxCallback2, -Infinity);
+    const result2 = [{ x: 22 }, { x: 42 }].reduce(maxCallback);
+    console.log("reduce求数组中最大值-----------------");
+    console.log(result);
+    console.log(result2);
+
+    // 将二维数组转化为一维
+    var flattened = [
+      [0, 1],
+      [2, 3],
+      [4, 5],
+    ].reduce(function (a, b) {
+      return a.concat(b);
+    }, []);
+    console.log("将二维数组转化为一维");
+    console.log(flattened);
+
+    /*
+    const treeData = [
+        {
+            title: 'root',
+            key: '0',
+            children: [
+                {
+                    title: 'child1',
+                    key: 'child1',
+                    children: [
+                        {
+                            title: 'child1.1',
+                            key: 'child1.1',
+                        },
+                    ]
+                },
+                {
+                    title: 'child2',
+                    key: 'child2',
+                    children: [
+
+                    ]
+                },
+            ]
+        }
+    ];
+const  treeData_reduce = treeData.reduce((count,cur,index,source)=>{
+    console.log(count,cur,index,source);
+    return count.concat(cur);
+},[])
+
+console.log(treeData_reduce)
+*/
+    //  计算数组中每个元素出现的次数
+
+    var names = ["Alice", "Bob", "Tiff", "Bruce", "Alice"];
+
+    var countedNames = names.reduce(function (allNames, name) {
+      if (name in allNames) {
+        allNames[name]++;
+      } else {
+        allNames[name] = 1;
+      }
+      return allNames;
+    }, {});
+    console.log("计算数组中每个元素出现的次数");
+    console.log(countedNames);
+  </script>
+</html>

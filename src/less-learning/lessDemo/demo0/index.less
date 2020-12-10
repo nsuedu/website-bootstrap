@@ -1,7 +1,7 @@
 /*
 一.注释
 */
-
+/*变量*/
 // 二.变量    @变量名:值 ------有利于样式的重用和维护
 @test_width: 300px;
 .box {
@@ -23,12 +23,12 @@
 }
 
 .hunhe1 {
-  .border1()
+  .border1();
 }
 
 .hunhe2 {
   .border1(30px);
-  margin-left: 100px
+  margin-left: 100px;
 }
 
 /*
@@ -73,7 +73,7 @@
   border-width: @w;
   border-color: @c transparent transparent transparent;
   border-style: solid dashed dashed dashed;
-} 
+}
 // 朝左的三角形
 .triangle(left, @w: 5px, @c#ccc) {
   border-width: @w;
@@ -86,7 +86,7 @@
   border-style: dashed dashed dashed solid;
 }
 
-// 使用  
+// 使用
 .sanjiaoTop {
   .triangle(top, 100px, red);
 }
@@ -101,7 +101,7 @@
 
 .sanjiaoRight {
   .triangle(right, 100px, red);
-} 
+}
 // 匹配模式例子2
 .pos(r) {
   position: relative;
@@ -121,22 +121,16 @@
   width: 200px;
   height: 200px;
   background-color: green;
-  
 }
-
 
 // 运算(像素运算， 颜色运算)
-/*
-@test_aWidth:300px;
 
-.box_02{
-  width: @test_aWidth-20;
+@test_aWidth: 300px;
+
+.box_02 {
+  width: @test_aWidth - 20;
   color: #ccc - 10;
 }
-*/
-
-
-
 
 /*
 不使用less的嵌套
@@ -155,27 +149,26 @@
  &-item
 */
 
-.list{
+.list {
   width: 600px;
   margin: 30px auto;
   padding: 0;
   list-style: none;
 
-  li{
+  li {
     height: 30px;
     background-color: pink;
     margin-bottom: 5px;
-
   }
   // 避免嵌套层数过多
-  a{
+  a {
     float: left;
     // 代表上一层选择器
-    &:hover{
+    &:hover {
       color: red;
     }
   }
-  span{
+  span {
     float: right;
   }
 }
@@ -185,22 +178,30 @@
 如果不想单独处理每一个参数就可以如下
 
  */
-.border_arguments(@width:30px,@color:red,@line:solid){
+.border_arguments(@width:30px,@color:red,@line:solid) {
   border: @arguments;
 }
 
-.test_arguments{
+.test_arguments {
   .border_arguments();
 }
 
 /*
 避免编译  ~
 */
-.test_03{
-  width: ~'calc(300px-30px)';
+.test_03 {
+  width: ~"calc(300px-30px)";
 }
 /*
 !important 最高优先级--比如混合模式后面加上important
 */
 
+.border5(@boder_width: 10px) {
+  border: solid red @boder_width;
+  width: 100px;
+  height: 100px;
+}
 
+.test_important {
+  .border5() !important;
+}

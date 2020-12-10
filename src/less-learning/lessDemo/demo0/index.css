@@ -1,6 +1,7 @@
 /*
 一.注释
 */
+/*变量*/
 .box {
   width: 300px;
   height: 300px;
@@ -80,14 +81,10 @@
   height: 200px;
   background-color: green;
 }
-/*
-@test_aWidth:300px;
-
-.box_02{
-  width: @test_aWidth-20;
-  color: #ccc - 10;
+.box_02 {
+  width: 280px;
+  color: #c2c2c2;
 }
-*/
 /*
 不使用less的嵌套
 .list{ }
@@ -141,3 +138,8 @@
 /*
 !important 最高优先级--比如混合模式后面加上important
 */
+.test_important {
+  border: solid #ff0000 10px !important;
+  width: 100px !important;
+  height: 100px !important;
+}
