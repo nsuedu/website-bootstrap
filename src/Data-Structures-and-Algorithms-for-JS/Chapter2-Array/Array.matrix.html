@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    /*
+二维数组类似一种由行和列构成的数据表格。
+在 JavaScript 中创建二维数组，
+1. 需要先创建 一个数组，
+2. 然后让数组的每个元素也是一个数组。
+最起码，
+我们需要知道二维数组要包含 多少行，
+有了这个信息，就可以创建一个 n 行 1 列的二维数组了：
+
+*/
+
+    function matrix1(rows = 5) {
+      var twod = [];
+      var rows = 5;
+      for (var i = 0; i < rows; i++) {
+        twod[i] = [];
+      }
+      return twod;
+    }
+
+    /*
+    行数，列数，初始值
+    */
+    function matrix(numrows, numcols, initial = 0) {
+      // 有多少行
+      var arr = [];
+      for (var i = 0; i < numrows; i++) {
+        // 有多少列
+        var columns = [];
+        for (var j = 0; j < numcols; j++) {
+          columns[j] = initial;
+        }
+
+        arr[i] = columns;
+      }
+      return arr;
+    }
+    // --------------------------------------------
+    var grades = [
+      [89, 77, 78],
+      [76, 82, 81],
+      [91, , 94, 89],
+    ];
+
+    function average1() {
+      let res = {};
+      grades.forEach((item, index) => {
+        res[`student${index + 1}`] = 0;
+        let total = 0;
+        item.forEach((childItem, childIndex) => {
+          total += childItem;
+        });
+        res[`student${index + 1}`] = (total / item.length).toFixed(2);
+      });
+
+      return res;
+    }
+    /*
+    创建一个记录学生成绩的对象，提供一个添加成绩的方法，以及一个显示学生平均成绩 的方法。
+    */
+    var grades1 = {
+      student1: { math: 60, chinese: 70, english: 80, history: 90 },
+      student2: { math: 64, chinese: 74, english: 84, history: 94 },
+      student3: { math: 0, chinese: 0, english: 0, history: 0 },
+      student4: { math: 0, chinese: 0, english: 0, history: 0 },
+      student5: { math: 0, chinese: 0, english: 0, history: 0 },
+      student6: { math: 0, chinese: 0, english: 0, history: 0 },
+    };
+
+    function addStudentGrade(name, subject, grade) {
+      if (
+        !(
+          typeof name === "string" &&
+          typeof subject === "string" &&
+          typeof grade === "number"
+        )
+      ) {
+        throw new Error("type error");
+      }
+      if (grades1[name]) {
+        grades1[name][subject] = grade;
+      } else {
+        grades1[name] = {};
+        grades1[name][subject] = grade;
+      }
+
+      return grades1;
+    }
+    const newGrades = addStudentGrade("student89", "my", 99);
+
+    function studentAvages() {
+      Object.keys(grades1).forEach((item) => {
+        const allSubjects = Object.keys(grades1[item]);
+        let total = 0;
+        allSubjects.forEach((subjectItem) => {
+          total += grades1[item][subjectItem];
+        });
+        let avg = (total / allSubjects.length).toFixed(2);
+
+        grades1[item].avg = avg;
+      });
+
+      return grades1;
+    }
+
+    addStudentGrade("student6", "english", 99);
+    studentAvages();
+    // console.log(grades1);
+
+    /*
+        将一组单词存储在一个数组中，并按正序和倒序分别显示这些单词。
+    */
+    const oldWords = [
+      "MyCode",
+      "Github",
+      "website",
+      "bootstrap",
+      "src",
+      "Data",
+      "Structures",
+      "and",
+      "for",
+    ];
+    const words = oldWords.map((item) => {
+      const upperCaseWord = item.toUpperCase();
+      const lowerCaseWord = item.toLowerCase();
+
+      const fromCharCode = String.fromCharCode(upperCaseWord);
+      return {
+        upperCaseWord,
+        lowerCaseWord,
+        charAt: upperCaseWord.charAt(),
+        charCodeAt: upperCaseWord.charCodeAt(),
+        codePointAt: upperCaseWord.codePointAt(),
+        fromCharCode,
+        // fromCodePoint: String.fromCodePoint(fromCharCode),
+        origin: item,
+      };
+    });
+
+    const sortWords = [...words].sort((a, b) => a.charCodeAt - b.charCodeAt);
+    const sortWords0 = [...sortWords].reverse();
+    const sortWords1 = [...words].sort((a, b) => b.charCodeAt - a.charCodeAt);
+
+    // console.log("---sort", sortWords);
+    // console.log("----reverse", sortWords0);
+    // console.log("-------sortWords1", sortWords1);
+
+    /*
+     创建这样一个对象，它将字母存储在一个数组中，并且用一个方法可以将字母连在一 起，显示成一个单词。
+    
+    难度是 怎么知道组合后的单词是正确的
+
+    https://bbs.csdn.net/topics/80344908
+     */
+  </script>
+  <script src="./DateUtils.js"></script>
+</html>
